@@ -61,6 +61,16 @@ int main()
     motor(1, 100);
     motor(0, -110);
     msleep(6500);
+
+    //Points In Direction Of BotGuy
+    motor(1, 20);
+    motor(0, 20);
+    msleep(7000);
+
+    //Moves Towards BotGuy
+    motor(1, 100);
+    motor(0, -110);
+    msleep(3000);
     
     
     ao();
