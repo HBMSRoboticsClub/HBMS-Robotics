@@ -1,79 +1,69 @@
 #include <kipr/wombat.h>
 
 int main()
-{
-    // Open Gate
-    enable_servos();
-    set_servo_position(0, 1800);
-    msleep(500);
-    
-    // Goes Up To Line
-    motor(1,-90);
-    motor(0, 100);
-    msleep(2750);
-  
-    // Turns To Be Directly On The Line
-    motor(1,175);
-    motor(0,100);
-    msleep(700);
-    
-    // Moves Forward 
-    motor(1,-98);
-    motor(0, 110);
-    msleep(2750);
-    
-    // Continues To Move Forward
-    motor(1, -98);
-    motor(0, 110);
-    msleep(2000);
-    
-    // Finishes Its Move Forward   
-    motor(1, -98);
-    motor(0, 110);
-    msleep(3100);
-    
-    // Stops For 1 Second
-    motor(1,-0);
-    motor(0, 0);
-    msleep(1000);
-    
-    // Closes Gate
-    enable_servos();
-    set_servo_position(0, 943);
-    msleep(500);
-    
-    // Turns Towards The Staring Box
-    motor(1, 20);
-    motor(0, 20);
-    msleep(7000);
-    
-    // Moves Towards Staring Bpx
-    motor(1, -100);
-    motor(0, 110);
-    msleep(6500);
+	{
 
-    // Opens Gate    
-    enable_servos();
-    set_servo_position(0, 1800);
-    msleep(500);
+    	int ticks;
+	ticks = 0;
+    	printf("Follow the line\n");
+        enable_servos();
+	set_servo_position(0, 323);
+    	msleep(500);
     
-    // Backs Up
-    motor(1, 100);
-    motor(0, -110);
-    msleep(6500);
-
-    //Points In Direction Of BotGuy
-    motor(1, 20);
-    motor(0, 20);
-    msleep(7000);
-
-    //Moves Towards BotGuy
-    motor(1, 100);
-    motor(0, -110);
-    msleep(3000);
+    	motor(1, -90);
+   	motor(0, 100);
+        msleep(1750);
+    	while (ticks < 50000)
+    	{
+        	if (analog(0) > 3000)
+        	{
+        	    	motor(0, 100);
+            		motor(1, -100);
+        	}
+        	else
+        	{
+            
+          	  	motor(0, 100);
+            		motor(1, 80);
+                	ticks += 50;
+        	}
+    	}
     
+    	motor(0, 0);
+       	motor(1, 0);
+        msleep(1000);
     
-    ao();
-	return 0;
-}
- 
+    	enable_servos();
+  	set_servo_position(0, 539);
+    	msleep(500);
+    
+    	motor(0, 100);
+       	motor(1, 80);
+        msleep(1500);
+    
+    	ticks = 0;
+    
+ 	while (ticks < 48000)
+    	{
+        	if (analog(0) > 3000)
+        	{
+            		motor(0, 100);
+            		motor(1, -100);
+        	}
+        	else
+        	{
+            
+        	    	motor(0, 100);
+            		motor(1, 80);
+                	ticks += 50;
+        	}
+    	}
+    
+   	motor(0, -100);
+       	motor(1, 80);
+        msleep(750);
+    
+        	
+    	ao();
+    	return 0;
+	}
