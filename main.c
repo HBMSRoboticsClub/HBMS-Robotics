@@ -1,7 +1,7 @@
 #include <kipr/wombat.h>
 
 int main()
-	{
+{
 
     	int ticks;
 	ticks = 0;
@@ -66,4 +66,4 @@ int main()
         	
     	ao();
     	return 0;
-	}
+}
