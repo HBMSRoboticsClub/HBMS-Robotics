@@ -1,5 +1,3 @@
-Code for robot 0250
-__________________________________________________________
 #include <kipr/wombat.h>
 
 int main()
