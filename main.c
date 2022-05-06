@@ -1,8 +1,7 @@
 #include <kipr/wombat.h>
 
 int main()
-	{
-	
+{
 	wait_for_light(4);
     	shut_down_in(119);
     	int ticks;
@@ -15,7 +14,7 @@ int main()
     	motor(1, -90);
    	motor(0, 100);
         msleep(2200);
-    	while (ticks < 5400)
+        while (ticks < 5400)
     	{
         	if (analog(0) > 3000)
         	{
@@ -30,7 +29,7 @@ int main()
             		motor(1, 80);
                
         	}
-                ticks += 1;
+         	ticks += 1;
     	}
     
     	motor(0, 0);
@@ -47,7 +46,7 @@ int main()
     
     	ticks = 0;
         
-    	while (ticks < 4300)
+    	while (ticks < 2944)
     	{
         	if (analog(0) > 3000)
         	{
@@ -58,20 +57,20 @@ int main()
         	else
         	{
             
-            		motor(0, 100);
+        	    	motor(0, 100);
             		motor(1, 80);
                
         	}
-           	ticks += 1;
+  	        ticks += 1;
     	}
     
-   	motor(0, -100);
+  	motor(0, -100);
        	motor(1, -80);
-        msleep(650);
+        msleep(158);
     
     	motor(0, 100);
        	motor(1, -80);
-        msleep(650);
+        msleep(0);
     
     	enable_servos();
   	set_servo_position(0, 323);
@@ -79,7 +78,11 @@ int main()
     
     	motor(0, -100);
        	motor(1, 80);
-        msleep(1050);
+        msleep(2500);
+    
+       	motor(0, -100);
+       	motor(1, -80);
+        msleep(1500);
     
         	
     	ao();
